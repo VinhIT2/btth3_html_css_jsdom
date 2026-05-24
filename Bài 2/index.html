@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý công việc cá nhân</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quản lý công việc cá nhân</h1>
+      <div class="statistics-card">
+        <div class="stat-item">Tổng cộng: <span id="total-tasks">0</span></div>
+        <div class="stat-item completed">
+          Hoàn thành: <span id="completed-tasks">0</span>
+        </div>
+        <div class="stat-item pending">
+          Chưa hoàn thành: <span id="pending-tasks">0</span>
+        </div>
+      </div>
+      <div id="toast-notification" class="toast hidden"></div>
+
+      <div class="action-bar">
+        <button id="btn-open-modal" class="btn btn-primary">
+          Thêm công việc
+        </button>
+      </div>
+      <div id="task-list" class="task-grid"></div>
+    </div>
+
+    <div id="task-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modal-title">Thêm công việc mới</h3>
+        <form id="task-form">
+          <input type="hidden" id="task-id" />
+
+          <div class="form-group">
+            <label for="task-title">Tiêu đề công việc *</label>
+            <input type="text" id="task-title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="task-desc">Mô tả ngắn</label>
+            <textarea id="task-desc" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="task-deadline">Hạn hoàn thành *</label>
+            <input type="date" id="task-deadline" required />
+          </div>
+
+          <div class="form-group">
+            <label for="task-priority">Mức ưu tiên</label>
+            <select id="task-priority">
+              <option value="Low">Thấp</option>
+              <option value="Medium" selected>Trung bình</option>
+              <option value="High">Cao</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <button
+              type="button"
+              id="btn-close-modal"
+              class="btn btn-secondary"
+            >
+              Hủy
+            </button>
+            <button type="submit" id="btn-submit-form" class="btn btn-primary">
+              Lưu
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
